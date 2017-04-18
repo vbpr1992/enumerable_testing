@@ -1,5 +1,6 @@
 require 'minitest/spec'
 require 'minitest/autorun'
+require 'minitest/nyan_cat'
 require_relative 'lib/de_enumerable'
 require_relative 'lib/book'
 
@@ -25,35 +26,49 @@ describe "Enumerable" do
   end
 
   it "implements all? correctly" do
-    skip
     results = @reimplements_enumerable.all? { |book| book.year > 1800 }
 
     assert_equal true, results
   end
 
+  it "implements all? correctly when the results are false" do
+
+    results = @reimplements_enumerable.all? { |book| book.year == 1800 }
+
+    assert_equal false, results
+  end
+
   it "implements count correctly" do
-    skip
     results = @reimplements_enumerable.count { |book| book.page_count > 300 }
 
     assert_equal 3, results
   end
 
+  it "implements count correctly" do
+    results = @reimplements_enumerable.count { |book| book.page_count == 1225 }
+
+    assert_equal 1, results
+  end
+
+  it "implements count correctly" do
+    results = @reimplements_enumerable.count { |book| book.page_count > 3000 }
+
+    assert_equal 0, results
+  end
+
   it "implements find correctly when there is a match" do
-    skip
     results = @reimplements_enumerable.find { |book| book.year > 1970 }
 
     assert_equal @h2g2, results
   end
 
   it "implements find correctly when there is not a match" do
-    skip
     results = @reimplements_enumerable.find { |book| book.year < 1492 }
 
     assert_nil results
   end
 
   it "implements each_with_index correctly" do
-    skip
     object_results = []
     index_results = []
 
@@ -67,7 +82,6 @@ describe "Enumerable" do
   end
 
   it "implements drop correctly" do
-    skip
     assert_equal [@moby_dick, @pride], @reimplements_enumerable.drop(2)
   end
 
