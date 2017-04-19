@@ -78,7 +78,7 @@ class ReimplementEnumerable
     new_index = 0
 
     @collection.each do |element|
-      if new_index == element
+      if new_index = yield(element)
       end
       new_index += 1
     end
