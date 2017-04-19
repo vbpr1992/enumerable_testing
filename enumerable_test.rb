@@ -86,7 +86,6 @@ describe "Enumerable" do
   end
 
   it "implements drop_while correctly" do
-    skip
 
     results = @reimplements_enumerable.drop_while { |book| book.year < 1900 }
 
