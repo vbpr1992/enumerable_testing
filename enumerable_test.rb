@@ -125,14 +125,12 @@ describe "Enumerable" do
   end
 
   it "implements max_by correctly" do
-    skip
     results = @h2g2
 
     assert_equal results, @reimplements_enumerable.max_by { |book| book.year }
   end
 
   it "implements min_by correctly" do
-    skip
     results = @pride
 
     assert_equal results, @reimplements_enumerable.min_by { |book| book.year }

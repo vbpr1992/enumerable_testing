@@ -122,16 +122,29 @@ class ReimplementEnumerable
   end
 
   def max_by
+    result = nil
 
     @collection.each do |element|
-      result = yield(element)
-      if result > result
-        return result
+      if result.nil?
+        result = element
+      elsif yield(element) > yield(result)
+        result = element
       end
     end
+    return result
   end
 
   def min_by
+    item = nil
+
+    @collection.each do |element|
+      if item.nil?
+        item = element
+      elsif yield(element) < yield(item)
+        item = element
+      end
+    end
+    return item
   end
 
   def reject
