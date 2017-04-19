@@ -138,7 +138,8 @@ class ReimplementEnumerable
     short = []
 
     @collection.each do |element|
-      if small = yield(element)
+      small = yield(element)
+      unless small
         short << element
       end
     end
