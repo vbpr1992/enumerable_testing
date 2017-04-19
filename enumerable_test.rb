@@ -86,10 +86,10 @@ describe "Enumerable" do
   end
 
   it "implements drop_while correctly" do
-
+    skip
     results = @reimplements_enumerable.drop_while { |book| book.year < 1900 }
 
-    assert_equal [@war_and_peace, @moby_dick, @pride], results
+    assert_equal [@h2g2, @moby_dick, @pride], results
   end
 
   it "implements find index correctly when there is a match" do
@@ -99,21 +99,18 @@ describe "Enumerable" do
   end
 
   it "implements find index correctly when there is no match" do
-    skip
     results = @reimplements_enumerable.find_index { |book| book.year == 2017 }
 
     assert_nil @reimplements_enumerable.find { |book| book.year == 2017 }
   end
 
   it "implements include? correctly when there is a match" do
-    skip
     results = @reimplements_enumerable.include?(@war_and_peace)
 
     assert_equal true, results
   end
 
   it "implements include? correctly when there is no match" do
-    skip
     not_in_list = Book.new("A Brief History of Time", 1988, "Stephen Hawking", 256)
 
     results = @reimplements_enumerable.include?(@not_in_list)
@@ -122,14 +119,12 @@ describe "Enumerable" do
   end
 
   it "implements map correctly" do
-    skip
     results = [1869, 1979, 1851, 1813]
 
     assert_equal results, @reimplements_enumerable.map { |book| book.year }
   end
 
   it "implements max_by correctly" do
-    skip
     results = @h2g2
 
     assert_equal results, @reimplements_enumerable.max_by { |book| book.year }

@@ -96,4 +96,35 @@ class ReimplementEnumerable
       list += 1
     end
   end
+
+  def include?(item)
+
+    @collection.each do |element|
+      find = item
+      if find
+        return true
+      else
+        return false
+      end
+    end
+  end
+
+  def map
+    array_results = []
+
+    @collection.each do |element|
+      value = yield(element)
+      if value
+        array_results << value
+      end
+    end
+    return array_results
+  end
+
+  def max_by
+
+    @collection.each do |element|
+      result = yield(element)
+    end
+  end
 end
