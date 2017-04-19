@@ -75,14 +75,10 @@ class ReimplementEnumerable
   end
 
   def drop_while
-    index = 0
-
-    @collection.each do |element|
-      item = yield(element)
-      if item
-        return element
+    each_with_index do |element, index|
+      unless yield(element)
+        return @collection[index..-1]
       end
-      index += 1
     end
   end
 
