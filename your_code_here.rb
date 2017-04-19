@@ -75,13 +75,15 @@ class ReimplementEnumerable
   end
 
   def drop_while
-    new_index = 0
+    new_array = []
 
     @collection.each do |element|
-      if new_index = yield(element)
+      dropped_item = yield(element)
+      if dropped_item
+        new_array << element
       end
-      new_index += 1
     end
+    new_array
   end
 
   def find_index
