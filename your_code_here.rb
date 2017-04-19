@@ -74,7 +74,7 @@ class ReimplementEnumerable
     return new_list
   end
 
-  def drop_while(index)
+  def drop_while
     new_index = 0
 
     @collection.each do |element|
