@@ -83,4 +83,14 @@ class ReimplementEnumerable
       new_index += 1
     end
   end
+
+  def find_index
+    list = []
+
+    @collection.each do |element|
+      if yield(element)
+        list << element
+      end
+    end
+  end
 end
