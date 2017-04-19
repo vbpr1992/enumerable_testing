@@ -39,7 +39,7 @@ class ReimplementEnumerable
         count += 1
       end
     end
-    count
+    return count
   end
 
   def find
@@ -62,10 +62,25 @@ class ReimplementEnumerable
   end
 
   def drop(index)
+    new_index = 0
+    new_list = []
+
     @collection.each do |element|
-      
-
+      if new_index >= index
+        new_list << element
+      end
+      new_index += 1
     end
+    return new_list
+  end
 
+  def drop_while(index)
+    new_index = 0
+
+    @collection.each do |element|
+      if new_index == element
+      end
+      new_index += 1
+    end
   end
 end
