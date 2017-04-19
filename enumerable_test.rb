@@ -125,6 +125,7 @@ describe "Enumerable" do
   end
 
   it "implements max_by correctly" do
+    skip
     results = @h2g2
 
     assert_equal results, @reimplements_enumerable.max_by { |book| book.year }
@@ -138,7 +139,6 @@ describe "Enumerable" do
   end
 
   it "implements reject correctly" do
-    skip
     short_books = [@h2g2, @pride]
 
     assert_equal short_books, @reimplements_enumerable.reject { |book| book.page_count > 500 }

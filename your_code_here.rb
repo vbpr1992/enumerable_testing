@@ -125,6 +125,23 @@ class ReimplementEnumerable
 
     @collection.each do |element|
       result = yield(element)
+      if result > result
+        return result
+      end
     end
+  end
+
+  def min_by
+  end
+
+  def reject
+    short = []
+
+    @collection.each do |element|
+      if small = yield(element)
+        short << element
+      end
+    end
+    return short
   end
 end
