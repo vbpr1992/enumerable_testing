@@ -85,12 +85,13 @@ class ReimplementEnumerable
   end
 
   def find_index
-    list = []
+    list = 0
 
     @collection.each do |element|
       if yield(element)
-        list << element
+        return list
       end
+      list += 1
     end
   end
 end
